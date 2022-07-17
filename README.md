@@ -1,3 +1,44 @@
+# 使用
+
+`<script src="https://unpkg.com/vue2-core-reactivity@1.0.0/index.js"`
+
+```js
+const vue = new MyVue({
+  el: '#app',
+  data: {
+    firstName: 'Jack',
+    lastName: 'Chou',
+    age: 20,
+    a: { b: 'b' },
+  },
+  computed: {
+    name() {
+      return this.firstName + this.lastName
+    },
+    yourAge: {
+      get() {
+        return this.age + 10
+      },
+      set(value) {
+        this.age = value - 10
+      },
+    },
+  },
+  methods: {
+    addAge(event) {
+      console.log(event)
+      this.age += 10
+      console.log(this)
+    },
+    onClick(num, name, age, str) {
+      console.log('点击了')
+      console.log(num, name, age, str)
+      console.log(this.name)
+    },
+  },
+})
+```
+
 # vue2-core-reactivity
 
 vue 的核心功能就是实现了数据到模板的**响应式系统**----修改数据，vue 自动执行副作用（更新 DOM、执行监听器等），从而让开发者从手动处理 DOM 更新的繁琐中解脱出来。
