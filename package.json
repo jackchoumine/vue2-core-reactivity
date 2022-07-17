@@ -1,0 +1,26 @@
+{
+  "name": "vue2-core-reactivity",
+  "version": "1.0.0",
+  "description": "vue2 响应式系统原理实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackchoumine/vue2-core-reactivity.git"
+  },
+  "keywords": [
+    "vue2",
+    "vue",
+    "reactivity",
+    "library",
+    "mvvm"
+  ],
+  "author": "jackchoumine <jackzhoumine@gmail.com;jackchou4job@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackchoumine/vue2-core-reactivity/issues"
+  },
+  "homepage": "https://github.com/jackchoumine/vue2-core-reactivity#readme"
+}
