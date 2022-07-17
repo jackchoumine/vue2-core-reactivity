@@ -1,6 +1,6 @@
 {
   "name": "vue2-core-reactivity",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "vue2 响应式系统原理实现",
   "main": "index.js",
   "scripts": {
