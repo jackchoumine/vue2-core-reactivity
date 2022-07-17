@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jackchoumine/vue2-core-reactivity/issues"
   },
-  "homepage": "https://github.com/jackchoumine/vue2-core-reactivity#readme"
+  "homepage": "https://github.com/jackchoumine/vue2-core-reactivity#readme",
+  "devDependencies": {
+    "gh-pages": "~4.0.0"
+  }
 }
