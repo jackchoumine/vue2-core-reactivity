@@ -2,70 +2,76 @@
  * @Description : 
  * @Date        : 2021-10-10 15:26:46 +0800
  * @Author      : JackChou
- * @LastEditTime: 2022-07-17 21:02:21 +0800
+ * @LastEditTime: 2022-10-16 01:49:09 +0800
  * @LastEditors : JackChou
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vue2-core-reactivity</title>
-  </head>
 
-  <body>
-    <h2>vue2-core-reactivity</h2>
-    <div id="app">
-      <h4>firstName:{{firstName}}</h4>
-      <h4>lastName:{{lastName}}</h4>
-      <h4>计算属性，name:{{name}}</h4>
-      <p @click="onClick(10,name,age,`name`)">yourAge:{{yourAge}}。点击我</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vue2-core-reactivity</title>
+</head>
 
-      <button @click="addAge">age加10</button>
+<body>
+  <h2>vue2-core-reactivity</h2>
+  <div id="app">
+    <h4>firstName:{{firstName}}</h4>
+    <h4>lastName:{{lastName}}</h4>
+    <h4>计算属性，name:{{name}}</h4>
+    <p @click="onClick(10,name,age,`name`)">yourAge:{{yourAge}}。点击我</p>
 
-      <button @click="()=>alert('绑定箭头函数1')">绑定箭头函数1</button>
-      <button @click="()=>{alert('绑定箭头函数2')}">绑定箭头函数2</button>
-      <p>v-model 双向绑定</p>
-      <p>a.b:{{a.b}}</p>
-      <input type="text" v-model="a.b" placeholder="请输入" />
-    </div>
-    <script src="./index.js"></script>
-    <script>
-      const vue = new MyVue({
-        el: '#app',
-        data: {
-          firstName: 'Jack',
-          lastName: 'Chou',
-          age: 20,
-          a: { b: 'b' },
+    <button @click="addAge">age加10</button>
+
+    <button @click="()=>alert('绑定箭头函数1')">绑定箭头函数1</button>
+    <button @click="()=>{alert('绑定箭头函数2')}">绑定箭头函数2</button>
+    <p>v-model 双向绑定</p>
+    <p>a.b:{{a.b}}</p>
+    <input type="text" v-model="a.b" placeholder="请输入" />
+    <hr>
+    <a href="https://github.com/jackchoumine/vue2-core-reactivity">github repo。欢迎star</a>
+  </div>
+
+  <script src="./index.js"></script>
+  <script>
+    const vue = new MyVue({
+      el: '#app',
+      data: {
+        firstName: 'Jack',
+        lastName: 'Chou',
+        age: 20,
+        a: { b: 'b' },
+      },
+      computed: {
+        name() {
+          return this.firstName + this.lastName
         },
-        computed: {
-          name() {
-            return this.firstName + this.lastName
+        yourAge: {
+          get() {
+            return this.age + 10
           },
-          yourAge: {
-            get() {
-              return this.age + 10
-            },
-            set(value) {
-              this.age = value - 10
-            },
-          },
-        },
-        methods: {
-          addAge(event) {
-            console.log(event)
-            this.age += 10
-            console.log(this)
-          },
-          onClick(num, name, age, str) {
-            console.log('点击了')
-            console.log(num, name, age, str)
-            console.log(this.name)
+          set(value) {
+            this.age = value - 10
           },
         },
-      })
-    </script>
-  </body>
+      },
+      methods: {
+        addAge(event) {
+          console.log(event)
+          this.age += 10
+          console.log(this)
+        },
+        onClick(num, name, age, str) {
+          console.log('点击了')
+          console.log(num, name, age, str)
+          console.log(this.name)
+        },
+      },
+    })
+  </script>
+
+</body>
+
 </html>
