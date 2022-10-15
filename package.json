@@ -4,7 +4,6 @@
   "description": "vue2 响应式系统原理实现",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d example"
   },
   "repository": {

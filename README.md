@@ -1,6 +1,20 @@
-# 使用
+# make my own vue2 core reactivity
+
+## 特性
+
+- 实现 `{{}}`、`v-model`和`@`这三个指令；
+
+- 计算属性；
+
+- methods；
+
+- watch；
+
+## usage
 
 `<script src="https://unpkg.com/vue2-core-reactivity@1.0.0/index.js"`
+
+> dont install it by npm.
 
 ```js
 const vue = new MyVue({
@@ -39,7 +53,7 @@ const vue = new MyVue({
 })
 ```
 
-# vue2-core-reactivity
+## vue2-core-reactivity
 
 vue 的核心功能就是实现了数据到模板的**响应式系统**----修改数据，vue 自动执行副作用（更新 DOM、执行监听器等），从而让开发者从手动处理 DOM 更新的繁琐中解脱出来。
 
@@ -59,7 +73,7 @@ vue 2 中，是利用 Object.defineProperty 来重新定义 vue 实例上的属�
 
 响应式基本原理：在 Vue 的构造函数中，对 vue 对象的 options 进行二次定义，即在初始化 vue 实例的时候，对 data、props、methods 等对象的每一个属性都通过 Object.defineProperty 定义一次，在数据被修改时，可在 set 中执行某些操作，比如更新视图、执行一个监听器等。
 
-## myVue 实现
+### myVue 实现
 
 ```js
 function MyVue(options = {}) {
@@ -93,7 +107,7 @@ function MyVue(options = {}) {
 }
 ```
 
-## 看 initMethods 和 initComputed
+### 看 initMethods 和 initComputed
 
 ```js
 function initComputed() {
@@ -125,7 +139,7 @@ initComputed.call(this)
 initMethods().call(this)
 ```
 
-## compile 是模板编译函数
+### compile 是模板编译函数
 
 ```js
 function Compile(el, vm) {
@@ -139,7 +153,7 @@ function Compile(el, vm) {
 
 `compileTemplate`是很关键的函数，稍后再看。
 
-## 如何观察 data 的变化？
+### 如何观察 data 的变化？
 
 `observe`的作用是监听 data 的变化，然后执行某些操作。
 
